@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="page-header" style="text-align:center;">
+		<h1>User Form</h1>
+	</div>
+	
+	<form class="form-horizontal" [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value,myForm.valid)">
+		<div class="form-group">
+			<div class="col-sm-1">
+				<label for="txtName" class="control-label">Name</label>
+			</div>
+			<div class="col-sm-4">
+				<input type="text" id="txtName" class="form-control" formControlName="name">
+				<div [hidden]="myForm.controls.name.valid || (myForm.controls.name.pristine && !submitted)" class="alert alert-danger">
+        			Name is required (minimum 5 characters).
+    			</div>
+			</div>
+			
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-1">
+				<label for="txtAge" class="control-label">Age</label>
+			</div>
+			<div class="col-sm-4">
+				<input type="number" id="txtAge" class="form-control" formControlName="age">
+				<div [hidden]="myForm.controls.age.valid || (myForm.controls.age.pristine && !submitted)" class="alert alert-danger">
+        			age is required.
+    			</div>
+			</div>
+			
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-1">
+				<label for="txtSalary" class="control-label">Salary</label>
+			</div>
+			<div class="col-sm-4">
+				<input type="number" id="txtSalary" class="form-control" formControlName="salary">
+				<div [hidden]="myForm.controls.salary.valid || (myForm.controls.salary.pristine && !submitted)" class="alert alert-danger">
+        			Salary is required (minimum 4 characters).
+    			</div>
+			</div>
+			
+		</div>
+		<div class="form-group">			
+			<div class="col-sm-offset-2 col-sm-4">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</form>
+	<span>{{response}}</span>
+</div>

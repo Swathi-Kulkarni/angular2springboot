@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+import { User }    from './user';
+@Component({
+  selector: 'user-form',
+  templateUrl: './user-form.component.html'
+})
+export class UserFormComponent {
+
+model = new User(308251, 'Rajat Sharma', 20, 20000);
+default() {
+  	    this.model = new User(308251, 'Rajat Sharma', 20, 20000);
+  }
+  onSubmit(name){
+  console.log(name);
+  
+  }
+}

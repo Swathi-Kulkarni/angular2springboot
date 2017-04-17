@@ -1,0 +1,52 @@
+<div  [hidden]="submitted">
+Form Values Diagnosis:&nbsp;{{diagnostic}}
+<div class="container">
+	<h1>User Form</h1>
+	<form  (ngSubmit)="onSubmit()" #userForm="ngForm">
+		<div class="form-group">
+			<label for="rollNo">Name</label> <input type="text"
+				class="form-control" id="name"
+				required
+               [(ngModel)]="model.name" name="name"
+				#name="ngModel">
+			<div [hidden]="name.valid || name.pristine"
+				class="alert alert-danger">Name is required field.</div>
+		</div>
+		<div class="form-group">
+			<label for="name">Age</label> <input type="text"
+				class="form-control" id="age"
+				required
+               [(ngModel)]="model.age" name="age"
+				#age="ngModel">
+			<div [hidden]="age.valid || age.pristine"
+				class="alert alert-danger">Age is required field.</div>
+		</div>
+		<div class="form-group">
+			<label for="branch">Salary</label> <input type="text"
+				class="form-control" id="salary"
+				required
+               [(ngModel)]="model.salary" name="salary"
+				#salary="ngModel">
+			<div [hidden]="salary.valid || salary.pristine"
+				class="alert alert-danger">Salary is required field.</div>
+		</div>
+		<button type="submit" class="btn btn-danger">Submit</button>
+	</form>
+</div>
+</div>
+<div [hidden]="!submitted">
+  <h2>Thanks for submitting your details.</h2>
+  <div class="row">
+    <div class="col-xs-3">Name:</div>
+    <div class="col-xs-9  pull-left">{{ model.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Age:</div>
+    <div class="col-xs-9 pull-left">{{ model.age }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Salary:</div>
+    <div class="col-xs-9 pull-left">{{ model.salary }}</div>
+  </div>
+  <br>
+</div>
